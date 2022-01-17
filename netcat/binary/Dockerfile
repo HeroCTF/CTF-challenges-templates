@@ -1,20 +1,18 @@
-FROM ubuntu:18.04
+FROM alpine:3.14
 
-RUN apt-get update 
-RUN apt-get install -y socat
-RUN groupadd ctf
+WORKDIR /challenge
 
-RUN mkdir /santa
-COPY ./integer_santa.bin /santa/
-COPY ./entry.sh /santa/
+COPY ./challenge .
+COPY ./entrypoint.sh .
 
-RUN useradd -G ctf --home=/santa player
+RUN apk add --no-cache socat
 
-RUN chown player:player /santa/integer_santa.bin
+RUN addgroup -S player \
+    && adduser -g '' -h '/challenge' -s '/bin/ash' -HDSG player player \
+    && chown -R player:player /challenge/ \
+    && chmod -R 755 /challenge/
 
-RUN chmod 4755 /santa/integer_santa.bin
-RUN chmod 4755 /santa/entry.sh
+ENV LISTEN_PORT 8000
 
-USER player
-
-ENTRYPOINT ["/santa/entry.sh"]
+EXPOSE 8000
+ENTRYPOINT ["./entrypoint.sh"]

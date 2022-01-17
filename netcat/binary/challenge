@@ -1,0 +1,3 @@
+#!/bin/ash
+
+echo I'm not a binary, but it's the same !
