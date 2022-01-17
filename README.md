@@ -6,7 +6,7 @@
     - PHP + MySQL
     - NodeJS + NoSQL
 - Netcat
-    - Python
+    - [Python](netcat/python) :heavy_check_mark:
     - ELF binary
 - SSH
     - SSH server
