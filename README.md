@@ -3,7 +3,7 @@
 ## Challenges
 
 - Web
-    - PHP + MySQL
+    - [PHP + MySQL](web/php_mysql) :heavy_check_mark:
     - NodeJS + NoSQL
 - [Netcat](netcat)
     - [Python](netcat/python) :heavy_check_mark:

@@ -1,0 +1,34 @@
+---
+version: "2.2"
+
+services:
+
+  challenge:
+    build: web/
+    restart: always
+    ports:
+      - "8080:80"
+    cpus: 0.5
+    mem_limit: 640m
+    environment:
+      - FLAG=Hero{awesome_flag}
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    cpus: 0.5
+    mem_limit: 2048m
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    volumes:
+      - "./db/:/docker-entrypoint-initdb.d/"
