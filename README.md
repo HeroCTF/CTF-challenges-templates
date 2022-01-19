@@ -2,14 +2,14 @@
 
 ## Challenges
 
-- Web
+- [Web](Web)
     - [PHP + MySQL](web/php_mysql) :heavy_check_mark:
-    - NodeJS + NoSQL
+    - [NodeJS + NoSQL](web/nodejs_nosql)
 - [Netcat](netcat)
     - [Python](netcat/python) :heavy_check_mark:
     - [ELF binary](netcat/binary) :heavy_check_mark:
-- SSH
-    - SSH server
+- [SSH](ssh)
+    - [SSH server](ssh/openssh_server) :heavy_check_mark:
 
 ## Recommendation
 
