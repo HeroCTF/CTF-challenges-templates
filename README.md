@@ -4,7 +4,7 @@
 
 - [Web](Web)
     - [PHP + MySQL](web/php_mysql) :heavy_check_mark:
-    - [NodeJS + NoSQL](web/nodejs_nosql)
+    - [NodeJS + NoSQL](web/nodejs_nosql) :heavy_check_mark:
 - [Netcat](netcat)
     - [Python](netcat/python) :heavy_check_mark:
     - [ELF binary](netcat/binary) :heavy_check_mark:

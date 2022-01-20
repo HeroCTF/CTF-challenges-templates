@@ -6,25 +6,16 @@ services:
   node:
     build: node/
     restart: always
-    ports:
-      - "3000:3000"
     environment:
       - MONGO_HOST=mongodb
-      - MONGO_DATABASE=${MONGO_DATABASE}
-      - MONGO_USERNAME=${MONGO_USERNAME}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
     depends_on:
       - mongodb
 
   mongodb:
-    image: mongo:latest
+    image: mongo:5
     restart: always
-    command: mongod
-    # ports:
-    #   - "27017:27017"
     environment:
-      - MONGO_INITDB_DATABASE=${MONGO_DATABASE}
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
-    volumes:
-      - "./mongo/:/docker-entrypoint-initdb.d/"
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
